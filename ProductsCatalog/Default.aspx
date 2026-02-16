@@ -9,7 +9,7 @@
 
             .glow-card:hover {
                 transform: translateY(-8px);
-                box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+                box-shadow: 0 0 20px #0dcaf0;
             }
     </style>
 
