@@ -73,6 +73,31 @@
 
     </form>
 
+    <footer class="bg-dark text-light mt-5 pt-4 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Products Catalog</h5>
+                    <p class="small text-secondary">Aplicación web para gestión de productos desarrollada en ASP.NET. </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">Secciones</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="Default.aspx" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="ListaArticulos.aspx" class="text-light text-decoration-none">Lista Articulos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">Autor</h6>
+                    <p class="small text-secondary mb-1">Desarrollado por <strong>Pablo Brites</strong> </p>
+                    <p class="small text-secondary mb-0">© <%= DateTime.Now.Year %> · Proyecto académico </p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">Proyecto educativo realizado para MaxiPrograma. </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
