@@ -11,7 +11,10 @@ namespace ProductsCatalog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!Page.AppRelativeVirtualPath.Equals("~/Default.aspx", StringComparison.OrdinalIgnoreCase)) //esto es para que el footer solo aparezca en default
+            {
+                footerDefault.Visible = false; 
+            }
         }
     }
 }
