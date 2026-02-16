@@ -20,6 +20,7 @@
 
     <h1>Catálogo de Productos</h1>
     <p>Explorá nuestros artículos disponibles.</p>
+    <br />
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
@@ -54,7 +55,7 @@
                                     </span>
 
                                     <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>"
-                                        class="btn btn-primary btn-sm">Ver Detalle
+                                        class="btn btn-primary btn">Ver Detalle
                                     </a>
 
                                 </div>

@@ -73,7 +73,7 @@
 
     </form>
 
-    <footer class="bg-dark text-light mt-5 pt-4 pb-3">
+    <footer id="footerDefault" runat="server" class="bg-dark text-light mt-5 pt-4 pb-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <hr class="border-secondary">
-            <div class="text-center small text-secondary">Proyecto educativo realizado para MaxiPrograma. </div>
+            <div class="text-center small text-secondary">Proyecto educativo realizado para MaxiPrograma.com </div>
         </div>
     </footer>
 
