@@ -94,7 +94,7 @@
                     <div class="mb-3">
                         <asp:Button Text="Eliminar"
                             ID="btnEliminar"
-                            CssClass="btn btn-danger"
+                            CssClass="btn btn-primary"
                             OnClick="btnEliminar_Click"
                             runat="server" />
                     </div>
@@ -109,7 +109,7 @@
 
                         <asp:Button Text="Eliminar definitivamente"
                             ID="btnConfirmaEliminacion"
-                            CssClass="btn btn-outline-danger"
+                            CssClass="btn btn-outline-primary"
                             OnClick="btnConfirmaEliminacion_Click"
                             runat="server" />
                     </div>
