@@ -19,7 +19,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Catálogo de Productos</h1>
-    <p>Explorá nuestros artículos disponibles.</p>
+    <p class="fs-5">Explorá nuestros artículos disponibles.</p>
     <br />
 
     <div class="row row-cols-1 row-cols-md-3 g-4">

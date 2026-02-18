@@ -8,9 +8,12 @@ namespace ProductsCatalog
 {
     public partial class ABMArticulo : System.Web.UI.Page
     {
+        public bool ConfirmaEliminacion { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
+            ConfirmaEliminacion = false;
 
             try
             {
@@ -31,7 +34,7 @@ namespace ProductsCatalog
                     ddlCategoria.DataBind();
                 }
 
-                // ===== SI VIENE ID → MODO EDICION =====
+                // ===== SI VIENE ID → MODO EDICION / ELIMINACION =====
                 string id = Request.QueryString["id"] != null
                     ? Request.QueryString["id"].ToString()
                     : "";
@@ -39,14 +42,18 @@ namespace ProductsCatalog
                 if (id != "" && !IsPostBack)
                 {
                     ArticuloNegocio negocio = new ArticuloNegocio();
-                    Articulo seleccionado = (negocio.listar(id))[0];
+                    Articulo seleccionado = negocio.listar(id)[0];
 
+                    // Guardar en Session
+                    Session.Add("articuloSeleccionado", seleccionado);
+
+                    // Precargar controles
                     txtId.Text = seleccionado.Id.ToString();
-                    txtNombre.Text = seleccionado.Nombre;
                     txtCodigo.Text = seleccionado.Codigo;
+                    txtNombre.Text = seleccionado.Nombre;
                     txtDescripcion.Text = seleccionado.Descripcion;
-                    txtPrecio.Text = seleccionado.Precio.ToString();
                     txtImagenUrl.Text = seleccionado.ImagenUrl;
+                    txtPrecio.Text = seleccionado.Precio.ToString();
 
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
@@ -61,6 +68,9 @@ namespace ProductsCatalog
             }
         }
 
+        // =====================================================
+        // AGREGAR / MODIFICAR
+        // =====================================================
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -99,18 +109,36 @@ namespace ProductsCatalog
             }
         }
 
+        // =====================================================
+        // MOSTRAR IMAGEN
+        // =====================================================
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
             imgArticulo.ImageUrl = txtImagenUrl.Text;
         }
 
+        // =====================================================
+        // BOTON ELIMINAR → SOLO MUESTRA CONFIRMACION
+        // =====================================================
         protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmaEliminacion = true;
+        }
+
+        // =====================================================
+        // CONFIRMACION REAL DE ELIMINACION
+        // =====================================================
+        protected void btnConfirmaEliminacion_Click(object sender, EventArgs e)
         {
             try
             {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                negocio.eliminar(int.Parse(txtId.Text));
-                Response.Redirect("ListaArticulos.aspx");
+                if (chkConfirmaEliminacion.Checked)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.eliminar(int.Parse(txtId.Text));
+
+                    Response.Redirect("Default.aspx", false);
+                }
             }
             catch (Exception ex)
             {

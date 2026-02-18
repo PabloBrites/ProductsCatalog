@@ -99,7 +99,7 @@
                             runat="server" />
                     </div>
 
-                    <%--<% if (ConfirmaEliminacion)
+                    <% if (ConfirmaEliminacion)
                         { %>
 
                     <div class="mb-3">
@@ -114,7 +114,7 @@
                             runat="server" />
                     </div>
 
-                    <% } %>--%>
+                    <% } %>
 
                 </ContentTemplate>
             </asp:UpdatePanel>
