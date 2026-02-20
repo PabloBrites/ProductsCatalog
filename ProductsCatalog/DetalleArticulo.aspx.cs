@@ -21,8 +21,7 @@ namespace ProductsCatalog
                     lblMarca.Text = seleccionado.Marca.Descripcion;
                     lblDescripcion.Text = seleccionado.Descripcion;
                     lblCodigo.Text = seleccionado.Codigo;
-                    lblPrecio.Text = seleccionado.Precio.ToString("N2");
-
+                    lblPrecio.Text = seleccionado.Precio.ToString("N0");
                     imgArticulo.ImageUrl = seleccionado.ImagenUrl;
                 }
             }

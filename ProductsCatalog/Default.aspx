@@ -7,10 +7,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-            .glow-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 0 20px #0dcaf0;
-            }
+        .glow-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px rgba(13, 110, 253, 0.7);
+        }
     </style>
 
 </asp:Content>
@@ -51,7 +51,7 @@
                                 <!-- Precio y Botón enfrentados -->
                                 <div class="d-flex justify-content-between align-items-center mt-3">
 
-                                    <span class="fw-bold">$ <%# String.Format("{0:N2}", Eval("Precio")) %>
+                                    <span class="fw-bold">$ <%# String.Format("{0:N0}", Eval("Precio")) %>
                                     </span>
 
                                     <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>"
