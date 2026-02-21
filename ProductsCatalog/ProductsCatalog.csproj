@@ -72,6 +72,7 @@
     <Content Include="DetalleArticulo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListaArticulos.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="ListaArticulos.aspx.designer.cs">
       <DependentUpon>ListaArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
