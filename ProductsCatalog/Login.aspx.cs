@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,9 +19,18 @@ namespace ProductsCatalog
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "admin" && txtPassword.Text == "admin")
+            Usuario usuario = new Usuario(
+                txtUsuario.Text.Trim(),
+                txtPassword.Text.Trim(),
+                false // esto se va a recalcular cuando loguea
+            );
+
+            UsuarioNegocio negocio = new UsuarioNegocio();
+
+            if (negocio.Loguear(usuario))
             {
-                Response.Redirect("ListaArticulos.aspx");
+                Session.Add("usuario", usuario);
+                Response.Redirect("ListaArticulos.aspx", false);
             }
             else
             {

@@ -10,8 +10,8 @@
                 <span class="text-muted">Iniciar sesión</span>
             </div>
             <div class="mb-3">
-                <label class="form-label">Usuario</label>
-                <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Ingrese su usuario" />
+                <label class="form-label">Email</label>
+                <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Ingrese su email" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Contraseña</label>

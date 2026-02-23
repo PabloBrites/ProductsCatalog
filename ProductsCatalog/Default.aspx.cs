@@ -21,7 +21,7 @@ namespace ProductsCatalog
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulos = negocio.listar();
+            ListaArticulos = negocio.listarConSP();
 
             if (!IsPostBack)
             {
