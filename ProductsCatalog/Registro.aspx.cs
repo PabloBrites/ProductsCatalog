@@ -32,10 +32,14 @@ namespace ProductsCatalog
             {
                 Trainee user = new Trainee();
                 TraineeNegocio traineeNegocio = new TraineeNegocio();
+                EmailService emailService = new EmailService();
 
                 user.Email = txtEmail.Text;
                 user.pass = txtPassword.Text;
                 user.Id = traineeNegocio.insertarNuevo(user);
+
+                emailService.ArmarCorreo(user.Email, "¡Bienvenido!", "🎉\nGracias por registrarte en ProductsCatalog.\nNos alegra tenerte acá y que formes parte de la comunidad.");
+                emailService.EnviarEmail();
 
                 Session.Add("trainee", user);
 
