@@ -37,6 +37,7 @@ namespace ProductsCatalog
                 user.Email = txtEmail.Text;
                 user.pass = txtPassword.Text;
                 user.Id = traineeNegocio.insertarNuevo(user);
+                Session.Add("trainee", user);
 
                 emailService.ArmarCorreo(user.Email, "¡Bienvenido!", "🎉\nGracias por registrarte en ProductsCatalog.\nNos alegra tenerte acá y que formes parte de la comunidad.");
                 emailService.EnviarEmail();

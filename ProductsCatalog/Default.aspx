@@ -7,10 +7,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .glow-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 20px rgba(13, 110, 253, 0.7);
-        }
+            .glow-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 0 20px rgba(13, 110, 253, 0.7);
+            }
     </style>
 
 </asp:Content>

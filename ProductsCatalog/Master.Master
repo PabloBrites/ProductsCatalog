@@ -54,17 +54,23 @@
                     </ul>
 
                     <div class="d-flex">
-
-                        <a href="Login.aspx" class="btn btn-outline-primary me-2">Ingresar</a>
+                        <% if (!negocio.Seguridad.sesionActiva(Session["trainee"]))
+                            { %>
+                        <a href="Login.aspx" class="btn btn-outline-primary me-2">Ingresar</a> <%--botones de login y registro--%>
                         <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
-
+                        <%      //este if lo que hace es mostrar una cosa u otra, la condicion seria: si no hay una sesion activa entonces te muestro esto, sino te muestro esto otro   
+                            }    //este es el codigo que hace que no veas el btn de loguin ni registrarte al entrar
+                            else
+                            {
+                        %>          <%--aca esta el btn salir que tambien esta en el page load--%>
+                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" />
+                        <asp:Label ID="lblUser" Text="user" CssClass="text-light m-auto me-2" runat="server" />
+                        <%} %>
                         <asp:Image ID="imgAvatar"
-                            Style="height: 40px; width: 40px; border-radius: 50%;"
-                            ImageUrl="https://simg.nicepng.com/png/small/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png"
-                            runat="server" />
+                            runat="server"
+                            Style="height: 40px; width: 40px; border-radius: 50%;" />
 
                     </div>
-
                 </div>
             </div>
         </nav>
