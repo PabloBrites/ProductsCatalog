@@ -13,6 +13,7 @@ namespace ProductsCatalog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //si no tengo una sesion activa, dejame ver estas paginas es la condicion
             if (!(Page is Login || Page is Registro || Page is Default || Page is Error || Page is DetalleArticulo))             
             {
                 if (!Seguridad.sesionActiva(Session["trainee"]))
@@ -33,7 +34,7 @@ namespace ProductsCatalog
                     string ruta = "~/Images/" + user.ImagenPerfil;
 
                     if (System.IO.File.Exists(Server.MapPath(ruta)))
-                        imgAvatar.ImageUrl = ruta;
+                        imgAvatar.ImageUrl = ruta + "?v=" + DateTime.Now.Ticks;
                 }
                 lblUser.Text = user.Email;
             }

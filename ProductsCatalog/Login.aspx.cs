@@ -57,7 +57,7 @@ namespace ProductsCatalog
                 else
                 {
                     Session.Add("error", "User o pass incorrectos");
-                    Response.Redirect("Error.aspx");
+                    Response.Redirect("Error.aspx", false);
                 }
 
             }            

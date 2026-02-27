@@ -27,9 +27,9 @@
             border: none;
         }
 
-        .btn-gris:hover {
-            background-color: #5a6268;
-        }
+            .btn-gris:hover {
+                background-color: #5a6268;
+            }
     </style>
 </asp:Content>
 
@@ -58,7 +58,7 @@
                     <div class="mb-3">
                         <label class="form-label">Apellido</label>
                         <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" />
-                    </div>                    
+                    </div>
 
                 </div>
 
@@ -70,7 +70,7 @@
                         <input type="file" id="txtImagen" runat="server" class="form-control" />
                     </div>
 
-                    <asp:Image 
+                    <asp:Image
                         ID="imgPerfil"
                         runat="server"
                         ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
@@ -83,14 +83,14 @@
             <!-- BOTONES -->
             <div class="mt-4 text-center">
 
-                <asp:Button 
+                <asp:Button
                     ID="btnGuardar"
                     runat="server"
                     Text="Guardar"
                     CssClass="btn btn-primary"
                     OnClick="btnGuardar_Click" />
 
-                <asp:HyperLink 
+                <asp:HyperLink
                     ID="btnRegresar"
                     runat="server"
                     NavigateUrl="Default.aspx"
@@ -98,8 +98,14 @@
                     Regresar
                 </asp:HyperLink>
 
-            </div>
+                <asp:Label
+                    ID="lblMensaje"
+                    runat="server"
+                    CssClass="alert alert-primary mt-3 d-block"
+                    Visible="false">
+                </asp:Label>
 
+            </div>
         </div>
     </div>
 

@@ -27,7 +27,7 @@ namespace ProductsCatalog
                     txtApellido.Text = user.Apellido;
 
                     if (!string.IsNullOrEmpty(user.ImagenPerfil))
-                        imgPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil;
+                        imgPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks;
                     else
                         imgPerfil.ImageUrl = "https://simg.nicepng.com/png/small/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
                 }
@@ -69,11 +69,14 @@ namespace ProductsCatalog
                 // Imagen avatar en Master
                 Image img = (Image)Master.FindControl("imgAvatar");
                 img.ImageUrl = rutaConVersion;
+
+                lblMensaje.Text = "☑️ Tus datos han sido guardados correctamente.";
+                lblMensaje.Visible = true;
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex.ToString());
             }
-        }      
+        }
     }
 }
