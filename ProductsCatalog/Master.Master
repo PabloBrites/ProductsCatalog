@@ -95,6 +95,7 @@
                     <ul class="list-unstyled">
                         <li><a href="Default.aspx" class="text-light text-decoration-none">Home</a></li>
                         <li><a href="ListaArticulos.aspx" class="text-light text-decoration-none">Lista Articulos</a></li>
+                        <li><a href="MiPerfil.aspx" class="text-light text-decoration-none">Mi Perfil</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
