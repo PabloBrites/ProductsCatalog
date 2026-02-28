@@ -45,6 +45,12 @@ namespace ProductsCatalog
             TraineeNegocio negocio = new TraineeNegocio();
             try
             {
+                if (Validaciones.CamposVacios(txtEmail.Text, txtPassword.Text))
+                {
+                    lblError.Text = "Debe completar el email y la contraseña.";
+                    lblError.Visible = true;
+                    return;
+                }
 
                 trainee.Email = txtEmail.Text;
                 trainee.pass = txtPassword.Text;
@@ -56,19 +62,18 @@ namespace ProductsCatalog
                 }
                 else
                 {
-                    Session.Add("error", "User o pass incorrectos");
-                    Response.Redirect("Error.aspx", false);
+                    lblError.Text = "Usuario o contraseña incorrectos.";
+                    lblError.Visible = true;
                 }
 
-            }            
-            catch (Exception ex)
+            }
+            catch (Exception)
             {
-
-                Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
+                Context.ApplicationInstance.CompleteRequest();
+
             }
         }
-
     }
 }
-    
+

@@ -60,7 +60,7 @@
                 <asp:Label
                     ID="lblError"
                     runat="server"
-                    CssClass="text-danger fw-semibold" />
+                    CssClass="text-primary fw-semibold" />
             </div>
 
         </div>

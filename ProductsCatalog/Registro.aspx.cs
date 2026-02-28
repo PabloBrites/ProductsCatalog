@@ -30,36 +30,48 @@ namespace ProductsCatalog
         {
             try
             {
+                // 🔥 VALIDACIÓN PRIMERO
+                if (Validaciones.CamposVacios(txtEmail.Text, txtPassword.Text))
+                {
+                    lblError.Text = "Debe completar el email y la contraseña.";
+                    lblError.Visible = true;
+                    return; // ⛔ corta todo acá
+                }
+
                 Trainee user = new Trainee();
                 TraineeNegocio traineeNegocio = new TraineeNegocio();
                 EmailService emailService = new EmailService();
 
                 user.Email = txtEmail.Text;
                 user.pass = txtPassword.Text;
+
                 user.Id = traineeNegocio.insertarNuevo(user);
+
                 Session.Add("trainee", user);
 
-                emailService.ArmarCorreo(user.Email, "¡Bienvenido!", "🎉\nGracias por registrarte en ProductsCatalog.\nNos alegra tenerte acá y que formes parte de la comunidad.");
+                emailService.ArmarCorreo(
+                    user.Email,
+                    "¡Bienvenido!",
+                    "🎉\nGracias por registrarte en ProductsCatalog.\nNos alegra tenerte acá y que formes parte de la comunidad."
+                );
+
                 emailService.EnviarEmail();
 
-                Session.Add("trainee", user);
-
-                // Mensaje genérico de bienvenida
                 toastMensaje.InnerHtml = "¡Muchas gracias por registrarte en ProductsCatalog! Ahora podés completar tu perfil.";
 
-                // Mostrar toast y luego redirigir a Default.aspx
                 string script = @"
             var toastEl = document.getElementById('toastBienvenida');
             var toast = new bootstrap.Toast(toastEl, {delay: 5000});
             toast.show();
-            // Redirigir después de 5 segundos
             setTimeout(function(){ window.location='Default.aspx'; }, 5000);
         ";
+
                 ClientScript.RegisterStartupScript(this.GetType(), "mostrarToast", script, true);
             }
             catch (Exception ex)
             {
                 lblError.Text = "Ocurrió un error: " + ex.Message;
+                lblError.Visible = true;
             }
         }
     }

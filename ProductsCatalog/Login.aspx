@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ProductsCatalog.Login" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
-
+    
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container-fluid d-flex justify-content-center align-items-center bg-light p-0" style="height: calc(90vh - 70px);">
         <div class="card shadow p-4" style="width: 380px; border-radius: 12px;">
             <div class="text-center mb-4">
@@ -17,11 +17,16 @@
                 <label class="form-label">Contraseña</label>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Ingrese su contraseña" />
             </div>
+            <asp:Label ID="lblMensaje"
+                runat="server"
+                CssClass="d-block custom-blue"
+                Visible="false">
+            </asp:Label>
             <div class="d-grid">
                 <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
             </div>
             <div class="text-center mt-3">
-                <asp:Label ID="lblError" runat="server" CssClass="text-danger fw-semibold" />
+                <asp:Label ID="lblError" runat="server" CssClass="text-primary fw-semibold" />
             </div>
         </div>
     </div>
